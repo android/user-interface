@@ -27,6 +27,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmojiCompat"
         tools:ignore="GoogleAppIndexingWarning">
+     
+         <!-- Adding this meta-data will download the font when application is installed from
+             Google Play Store. This way the font will be downloaded and ready when your app starts
+             for the first time. -->
+        <meta-data android:name="fontProviderRequests" android:value="Noto Color Emoji Compat"/>
 
         <activity
             android:name=".MainActivity"
