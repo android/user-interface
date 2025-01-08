@@ -47,6 +47,7 @@ import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.appWidgetBackground
+import androidx.glance.appwidget.provideContent
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.background
 import androidx.glance.currentState
@@ -83,8 +84,14 @@ class ImageGlanceWidget : GlanceAppWidget() {
 
     override val sizeMode: SizeMode = SizeMode.Exact
 
+    override suspend fun provideGlance(context: Context, id: GlanceId) {
+        provideContent {
+            Content()
+        }
+    }
+
     @Composable
-    override fun Content() {
+    private fun Content() {
         val context = LocalContext.current
         val size = LocalSize.current
         val imagePath = currentState(getImageKey(size))

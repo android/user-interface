@@ -34,6 +34,7 @@ import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.lazy.LazyColumn
 import androidx.glance.appwidget.lazy.items
+import androidx.glance.appwidget.provideContent
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.layout.Column
 import androidx.glance.layout.fillMaxSize
@@ -53,8 +54,14 @@ import com.example.android.appwidget.glance.appWidgetBackgroundCornerRadius
  */
 class ListGlanceWidget : GlanceAppWidget() {
 
+    override suspend fun provideGlance(context: Context, id: GlanceId) {
+        provideContent {
+            Content()
+        }
+    }
+
     @Composable
-    override fun Content() {
+    private fun Content() {
         GlanceTheme {
             Column(
                 modifier = GlanceModifier

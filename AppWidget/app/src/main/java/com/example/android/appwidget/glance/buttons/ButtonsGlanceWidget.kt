@@ -41,6 +41,7 @@ import androidx.glance.appwidget.action.ToggleableStateKey
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.lazy.LazyColumn
+import androidx.glance.appwidget.provideContent
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.background
 import androidx.glance.currentState
@@ -65,9 +66,15 @@ import com.example.android.appwidget.glance.appWidgetBackgroundCornerRadius
  */
 class ButtonsGlanceWidget : GlanceAppWidget() {
 
+    override suspend fun provideGlance(context: Context, id: GlanceId) {
+        provideContent {
+            Content()
+        }
+    }
+
     @SuppressLint("RemoteViewLayout")
     @Composable
-    override fun Content() {
+    private fun Content() {
         GlanceTheme {
             Column(
                 modifier = GlanceModifier
