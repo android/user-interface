@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.slidingpanelayout.widget.SlidingPaneLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recycler_view"
+
+        android:layout_width="600dp"
+
+        android:layout_height="840"
+
+        android:layout_gravity="start" />
+
+    <androidx.fragment.app.FragmentContainerView
+
+        android:id="@+id/nav_host_fragment"
+
+        android:name="androidx.navigation.fragment.NavHostFragment"
+
+        android:layout_width="480dp"
+
+        android:layout_height="900"
+
+        android:layout_weight="1"
+
+        app:defaultNavHost="true"
+
+        app:navGraph="@navigation/item_navigation" />
+
+</androidx.slidingpanelayout.widget.SlidingPaneLayout>
