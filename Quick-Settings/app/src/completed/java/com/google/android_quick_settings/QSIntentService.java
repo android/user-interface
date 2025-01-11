@@ -20,6 +20,8 @@ import android.content.res.Resources;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
+import androidx.core.os.BuildCompat;
+
 @SuppressLint("Override")
 public class QSIntentService extends TileService {
 
@@ -46,6 +48,9 @@ public class QSIntentService extends TileService {
                     tileLabel);
             intent.putExtra(ResultActivity.RESULT_ACTIVITY_INFO_KEY,
                     tileState);
+            if (BuildCompat.isAtLeastP()) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
 
             startActivityAndCollapse(intent);
         }
